@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Matematika SD • Kelas 1–3</title>
+        
+        <!-- FONT GOOGLE YANG LEBIH MENARIK -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+            /* FONT LEBIH MENARIK */
+            font-family: "Fredoka", sans-serif;
+          }
+
+  body {
+    background: linear-gradient(135deg, #ffe8d6, #ffd6e8, #c7f9ff);
+    background-size: 400% 400%;
+    animation: bgmove 10s infinite alternate;
+    padding-bottom: 50px;
+  }
+  @keyframes bgmove { 0%{background-position:left;} 100%{background-position:right;} }
+
+  nav {
+    width:100%; padding:20px 40px;
+    background:rgba(255,255,255,0.7);
+    display:flex; justify-content:space-between; align-items:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    position:sticky; top:0;
+  }
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+
+  .container { padding:30px; max-width:900px; margin:auto; }
+  h1 { text-align:center; margin-bottom:20px; }
+  .section {
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    animation:pop .5s;
+  }
+  @keyframes pop { 0%{transform:scale(.5); opacity:0;} 100%{transform:scale(1); opacity:1;} }
+
+  h2 { margin-bottom:10px; color:#444; }
+  p { font-size:16px; color:#444; }
+
+  .contoh-box {
+    margin-top:10px;
+    padding:15px;
+    background:#fff7d1;
+    border-left:5px solid #ffb703;
+    border-radius:10px;
+  }
+
+  /* INTERAKTIF */
+  .latihan {
+    margin-top:15px;
+    background:#e0f7ff;
+    padding:15px;
+    border-radius:12px;
+  }
+  input {
+    padding:8px;
+    width:80px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #aaa;
+  }
+  button {
+    padding:10px 18px;
+    border:none;
+    border-radius:12px;
+    background:#ff6f91;
+    color:white;
+    margin-left:10px;
+    cursor:pointer;
+    font-weight:600;
+  }
+  button:hover { background:#ff3f6f; }
+
+  #hasil { margin-top:10px; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">📘 Teori Matematika Kelas 1</div>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="#">Materi</a></li>
+    <li><a href="#">Tentang</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Teori Matematika SD Kelas 1</h1>
+
+  <!-- PENGERTIAN ANGKA -->
+  <div class="section">
+    <h2>1. Pengertian Angka</h2>
+    <p>Angka adalah simbol atau tanda yang digunakan untuk menunjukkan jumlah suatu benda.
+        Dengan angka, kita bisa mengetahui berapa banyak benda yang kita miliki, bisa menghitung sesuatu, dan bisa menulis urutan.. Contoh angka: 1, 2, 3, 4, 5, dan seterusnya.</p>
+
+    <div class="contoh-box">
+      Contoh: Jika kamu punya 🍎🍎🍎 maka jumlahnya adalah <b>3</b>.
+    </div>
+  </div>
+
+  <!-- PENJUMLAHAN -->
+  <div class="section">
+    <h2>2. Penjumlahan</h2>
+    <p>Penjumlahan adalah menyatakan banyaknya benda dengan cara menambahkan. Kita menggabungkan dua atau lebih jumlah agar menjadi lebih banyak. Tanda penjumlahan adalah +.
+Contoh: 2 + 3 artinya menambah 2 dengan 3, hasilnya 5. Penjumlahan membuat jumlah menjadi lebih banyak.</p>
+
+    <div class="contoh-box">
+      Contoh: 2 + 3 = <b>5</b>
+    </div>
+
+    <div class="latihan">
+      <p><b>Coba Hitung:</b></p>
+      <input type="number" id="a1"> + <input type="number" id="a2">
+      <button onclick="jumlah()">Hitung</button>
+      <div id="hasilJumlah" class="hasil"></div>
+    </div>
+
+  </div>
+
+  <!-- PENGURANGAN -->
+  <div class="section">
+    <h2>3. Pengurangan</h2>
+    <p>Pengurangan adalah mengambil atau mengurangi sebagian dari suatu jumlah. Tanda pengurangan adalah –.
+Contoh: 5 – 2 artinya mengambil 2 dari 5, sehingga tersisa 3. Pengurangan membuat jumlah menjadi lebih sedikit.</p>
+
+    <div class="contoh-box">
+      Contoh: 5 - 2 = <b>3</b>
+    </div>
+
+    <div class="latihan">
+      <p><b>Coba Hitung:</b></p>
+      <input type="number" id="b1"> - <input type="number" id="b2">
+      <button onclick="kurang()">Hitung</button>
+      <div id="hasilKurang" class="hasil"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function jumlah() {
+    let x = Number(document.getElementById("a1").value);
+    let y = Number(document.getElementById("a2").value);
+    let hasil = x + y;
+    document.getElementById("hasilJumlah").innerHTML = "Hasil: " + hasil;
+  }
+
+  function kurang() {
+    let x = Number(document.getElementById("b1").value);
+    let y = Number(document.getElementById("b2").value);
+    let hasil = x - y;
+    document.getElementById("hasilKurang").innerHTML = "Hasil: " + hasil;
+  }
+</script>
+
+</body>
+</html>

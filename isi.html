@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Matematika Ceria</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0, #81ecec, #a29bfe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box {
+    background: #ffffffcc;
+    padding: 30px;
+    width: 360px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+    backdrop-filter: blur(5px);
+  }
+
+  h2 {
+    color: #6c5ce7;
+    font-weight: 800;
+    font-size: 28px;
+  }
+
+  #progress {
+    background: #55efc4;
+    padding: 6px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #d63031;
+  }
+
+  input {
+    width: 100px;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 3px solid #74b9ff;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 18px;
+    background: #00b894;
+    border: none;
+    padding: 14px 25px;
+    color: white;
+    font-size: 17px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .result {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  .final-score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 25px;
+    color: #6c5ce7;
+  }
+
+  .bottom-buttons {
+    margin-top: 25px;
+    display: none;
+  }
+
+  .nav-btn {
+    background: #6c5ce7;
+    padding: 12px 18px;
+    margin: 8px;
+    display: inline-block;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Quiz Matematika Ceria 🎉</h2>
+
+  <div id="progress">Soal: 1 / 5</div>
+
+  <div class="question" id="questionText"></div>
+
+  <input type="number" id="answerInput" placeholder="?">
+  <br>
+  <button onclick="cekJawaban()" id="btnCek">Cek Jawaban</button>
+
+  <div class="result" id="resultText"></div>
+  <div class="final-score" id="finalScore"></div>
+
+  <div class="bottom-buttons" id="bottomButtons">
+    <div class="nav-btn" onclick="ulangQuiz()">🔁 Ulangi Quiz</div>
+    <div class="nav-btn" onclick="history.back()">🏠 Kembali</div>
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="benarSound" src="Audio/Benar 3.mp4"></audio>
+  <audio id="salahSound" src="Audio/Sound salah baru.mp4"></audio>
+  <audio id="senangSound" src="audio/WIN sound effect no copyright.mp3"></audio>
+  <audio id="sedihSound" src="Audio/sedih.mp3"></audio>
+</div>
+
+<script>
+  let angka1, angka2, operasi, jawabanBenar;
+  let nomorSoal = 1;
+  let totalBenar = 0;
+  const totalSoal = 5;
+
+  function buatSoalBaru() {
+    if (nomorSoal > totalSoal) {
+      tampilkanHasilAkhir();
+      return;
+    }
+
+    angka1 = Math.floor(Math.random() * 10) + 1;
+    angka2 = Math.floor(Math.random() * 10) + 1;
+    operasi = Math.random() > 0.5 ? "+" : "-";
+
+    jawabanBenar = operasi === "+" ? angka1 + angka2 : angka1 - angka2;
+
+    if (jawabanBenar < 0) {
+      [angka1, angka2] = [angka2, angka1];
+      jawabanBenar = angka1 - angka2;
+    }
+
+    document.getElementById("questionText").innerHTML =
+      `${angka1} ${operasi} ${angka2} = ?`;
+
+    document.getElementById("progress").innerHTML =
+      `Soal: ${nomorSoal} / ${totalSoal}`;
+
+    document.getElementById("answerInput").value = "";
+    document.getElementById("resultText").innerHTML = "";
+  }
+
+  function cekJawaban() {
+    let jawabanUser = document.getElementById("answerInput").value;
+    let result = document.getElementById("resultText");
+
+    let audioBenar = document.getElementById("benarSound");
+    let audioSalah = document.getElementById("salahSound");
+
+    audioBenar.pause();
+    audioSalah.pause();
+    audioBenar.currentTime = 0;
+    audioSalah.currentTime = 0;
+
+    if (jawabanUser == jawabanBenar) {
+      result.style.color = "green";
+      result.innerHTML = "Benar! Hebat! 🎉";
+      audioBenar.play();
+      totalBenar++;
+    } else {
+      result.style.color = "red";
+      result.innerHTML = "Salah, tetap semangat ya! 😅";
+      audioSalah.play();
+    }
+
+    nomorSoal++;
+    setTimeout(buatSoalBaru, 1200);
+  }
+
+  function tampilkanHasilAkhir() {
+    document.getElementById("questionText").style.display = "none";
+    document.getElementById("answerInput").style.display = "none";
+    document.getElementById("btnCek").style.display = "none";
+    document.getElementById("resultText").style.display = "none";
+
+    let nilaiAkhir = (totalBenar / totalSoal) * 100;
+
+    document.getElementById("finalScore").innerHTML =
+      `🎉 Nilai Kamu: <b>${nilaiAkhir}</b><br>
+       Jawaban benar: ${totalBenar} dari ${totalSoal}`;
+
+    document.getElementById("bottomButtons").style.display = "block";
+
+    let senang = document.getElementById("senangSound");
+    let sedih = document.getElementById("sedihSound");
+
+    senang.pause();
+    sedih.pause();
+    senang.currentTime = 0;
+    sedih.currentTime = 0;
+
+    if (nilaiAkhir >= 80) {
+      senang.play();   // 🎉 senang
+    } else if (nilaiAkhir <= 60) {
+      sedih.play();    // 😢 sedih
+    }
+  }
+
+  function ulangQuiz() {
+    nomorSoal = 1;
+    totalBenar = 0;
+
+    document.getElementById("questionText").style.display = "block";
+    document.getElementById("answerInput").style.display = "inline-block";
+    document.getElementById("btnCek").style.display = "inline-block";
+    document.getElementById("resultText").style.display = "block";
+    document.getElementById("finalScore").innerHTML = "";
+    document.getElementById("bottomButtons").style.display = "none";
+
+    buatSoalBaru();
+  }
+
+  buatSoalBaru();
+</script>
+
+</body>
+</html>
