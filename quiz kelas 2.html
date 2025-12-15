@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Matematika Kelas 2</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0, #81ecec, #a29bfe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box {
+    background: #ffffffcc;
+    padding: 30px;
+    width: 360px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+    backdrop-filter: blur(5px);
+  }
+
+  h2 {
+    color: #6c5ce7;
+    font-weight: 800;
+    font-size: 28px;
+  }
+
+  #progress {
+    background: #55efc4;
+    padding: 6px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #d63031;
+    min-height: 60px;
+  }
+
+  input {
+    width: 160px;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 3px solid #74b9ff;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 18px;
+    background: #00b894;
+    border: none;
+    padding: 14px 25px;
+    color: white;
+    font-size: 17px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .result {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  .final-score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 25px;
+    color: #6c5ce7;
+  }
+
+  .bottom-buttons {
+    margin-top: 25px;
+    display: none;
+  }
+
+  .nav-btn {
+    background: #6c5ce7;
+    padding: 12px 18px;
+    margin: 8px;
+    display: inline-block;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Quiz Matematika Kelas 2 🎉</h2>
+
+  <div id="progress">Soal: 1 / 10</div>
+
+  <div class="question" id="questionText"></div>
+
+  <input type="text" id="answerInput" placeholder="?">
+  <br>
+  <button onclick="cekJawaban()" id="btnCek">Cek Jawaban</button>
+
+  <div class="result" id="resultText"></div>
+  <div class="final-score" id="finalScore"></div>
+
+  <div class="bottom-buttons" id="bottomButtons">
+    <div class="nav-btn" onclick="ulangQuiz()">🔁 Ulangi Quiz</div>
+    <div class="nav-btn" onclick="history.back()">🏠 Kembali</div>
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="benarSound" src="Audio/sound-benar-baru_pBtpnq5r.mp3"></audio>
+  <audio id="salahSound" src="Audio/sound-salah-baru_NlzOVvdd.mp3"></audio>
+  <audio id="senangSound" src="Audio/WIN sound effect no copyright.mp3"></audio>
+  <audio id="sedihSound" src="Audio/sedih.mp3"></audio>
+</div>
+
+<script>
+  const soalList = [
+    /* PERKALIAN */
+    { q: "3 × 2 = ?", a: "6" },
+    { q: "4 × 3 = ?", a: "12" },
+    { q: "5 × 2 = ?", a: "10" },
+
+    /* PEMBAGIAN */
+    { q: "6 ÷ 2 = ?", a: "3" },
+    { q: "8 ÷ 4 = ?", a: "2" },
+    { q: "9 ÷ 3 = ?", a: "3" },
+
+    /* SOAL CERITA PENGUKURAN (PAKAI SATUAN) */
+    { q: "Panjang pensil Ani 15 cm dan pensil Budi 10 cm. Berapa cm panjang keduanya?", a: "25 cm" },
+    { q: "Berat gula 2 kg dan tepung 3 kg. Berapa kg jumlah beratnya?", a: "5 kg" },
+    { q: "Ibu memasak selama 20 menit lalu dilanjutkan 10 menit. Total waktu memasak?", a: "30 menit" },
+    { q: "Tali merah panjangnya 12 cm dan tali biru 8 cm. Selisih panjangnya berapa cm?", a: "4 cm" }
+  ];
+
+  function acakSoal(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  let nomorSoal = 0;
+  let totalBenar = 0;
+
+  acakSoal(soalList);
+
+  function tampilkanSoal() {
+    if (nomorSoal >= soalList.length) {
+      tampilHasil();
+      return;
+    }
+
+    document.getElementById("questionText").innerHTML = soalList[nomorSoal].q;
+    document.getElementById("progress").innerHTML =
+      `Soal: ${nomorSoal + 1} / ${soalList.length}`;
+    document.getElementById("answerInput").value = "";
+    document.getElementById("resultText").innerHTML = "";
+  }
+
+  function cekJawaban() {
+    let user = document.getElementById("answerInput").value.trim().toLowerCase();
+    let benar = soalList[nomorSoal].a.toLowerCase();
+
+    let audioBenar = document.getElementById("benarSound");
+    let audioSalah = document.getElementById("salahSound");
+
+    audioBenar.pause();
+    audioSalah.pause();
+    audioBenar.currentTime = 0;
+    audioSalah.currentTime = 0;
+
+    if (user === benar) {
+      document.getElementById("resultText").style.color = "green";
+      document.getElementById("resultText").innerHTML = "Benar! 🎉";
+      audioBenar.play();
+      totalBenar++;
+    } else {
+      document.getElementById("resultText").style.color = "red";
+      document.getElementById("resultText").innerHTML = "Salah! 😅";
+      audioSalah.play();
+    }
+
+    nomorSoal++;
+    setTimeout(tampilkanSoal, 1200);
+  }
+
+  function tampilHasil() {
+    document.getElementById("questionText").style.display = "none";
+    document.getElementById("answerInput").style.display = "none";
+    document.getElementById("btnCek").style.display = "none";
+    document.getElementById("resultText").style.display = "none";
+
+    let nilai = (totalBenar / soalList.length) * 100;
+
+    document.getElementById("finalScore").innerHTML =
+      `🎉 Nilai Kamu: <b>${nilai}</b><br>
+       Jawaban benar: ${totalBenar} dari ${soalList.length}`;
+
+    document.getElementById("bottomButtons").style.display = "block";
+
+    let senang = document.getElementById("senangSound");
+    let sedih = document.getElementById("sedihSound");
+
+    senang.pause();
+    sedih.pause();
+    senang.currentTime = 0;
+    sedih.currentTime = 0;
+
+    if (nilai >= 80) {
+      senang.play();
+    } else if (nilai <= 60) {
+      sedih.play();
+    }
+  }
+
+  function ulangQuiz() {
+    nomorSoal = 0;
+    totalBenar = 0;
+
+    acakSoal(soalList);
+
+    document.getElementById("questionText").style.display = "block";
+    document.getElementById("answerInput").style.display = "inline-block";
+    document.getElementById("btnCek").style.display = "inline-block";
+    document.getElementById("resultText").style.display = "block";
+    document.getElementById("finalScore").innerHTML = "";
+    document.getElementById("bottomButtons").style.display = "none";
+
+    tampilkanSoal();
+  }
+
+  tampilkanSoal();
+</script>
+
+</body>
+</html>
