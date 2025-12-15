@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matematika SD • Kelas 1–3</title>
+    
+    <!-- FONT GOOGLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Fredoka", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #d6ffe8, #e8d6ff, #ffd6d6);
+        background-size: 400% 400%;
+        animation: bgmove 10s infinite alternate;
+        padding-bottom: 50px;
+      }
+      @keyframes bgmove { 0%{background-position:left;} 100%{background-position:right;} }
+
+      nav {
+        width:100%; padding:20px 40px;
+        background:rgba(255,255,255,0.7);
+        display:flex; justify-content:space-between; align-items:center;
+        backdrop-filter:blur(10px);
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        position:sticky; top:0;
+      }
+      nav .logo { font-size:24px; font-weight:bold; }
+      nav ul { list-style:none; display:flex; gap:25px; }
+      nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+      nav ul li a:hover { color:#ff5b5b; }
+
+      .container { padding:30px; max-width:900px; margin:auto; }
+      h1 { text-align:center; margin-bottom:20px; }
+      .section {
+        background:white;
+        padding:20px;
+        border-radius:20px;
+        margin-bottom:25px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+        animation:pop .5s;
+      }
+      @keyframes pop { 0%{transform:scale(.5); opacity:0;} 100%{transform:scale(1); opacity:1;} }
+
+      h2 { margin-bottom:10px; color:#444; }
+      p { font-size:16px; color:#444; }
+
+      .contoh-box {
+        margin-top:10px;
+        padding:15px;
+        background:#fff7d1;
+        border-left:5px solid #ffb703;
+        border-radius:10px;
+      }
+
+      .latihan {
+        margin-top:15px;
+        background:#e0f7ff;
+        padding:15px;
+        border-radius:12px;
+      }
+      input {
+        padding:8px;
+        width:100px;
+        font-size:16px;
+        border-radius:8px;
+        border:1px solid #aaa;
+      }
+      button {
+        padding:10px 18px;
+        border:none;
+        border-radius:12px;
+        background:#ff6f91;
+        color:white;
+        margin-left:10px;
+        cursor:pointer;
+        font-weight:600;
+      }
+      button:hover { background:#ff3f6f; }
+
+      .hasil { margin-top:10px; font-weight:bold; }
+    </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">📘 Teori Matematika Kelas 2</div>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="#">Materi</a></li>
+    <li><a href="#">Tentang</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Teori Matematika SD Kelas 2</h1>
+
+  <!-- PERKALIAN -->
+  <div class="section">
+    <h2>1. Perkalian</h2>
+    <p>
+   Perkalian adalah cara cepat untuk menjumlahkan bilangan yang sama berkali-kali. Jadi, daripada menjumlahkan terus-terusan, kita bisa memakai tanda “×” agar lebih mudah. Contohnya, 2 × 3 artinya 2 ditambah 2 ditambah 2, sebanyak 3 kali, hasilnya adalah 6. Perkalian juga sering digambarkan sebagai kelompok-kelompok. Misalnya, ada 4 kantong, dan setiap kantong berisi 5 permen. Kalau dihitung semua, jumlah permen adalah 4 × 5 = 20. Jadi, perkalian membantu kita menghitung jumlah banyak benda dengan lebih cepat tanpa harus menghitung satu-satu. Perkalian juga membuat kita lebih mudah menyelesaikan soal sehari-hari, seperti menghitung pensil, buku, atau mainan yang berkelompok
+    </p>
+
+    <div class="contoh-box">Contoh: 2 × 3 = <b>6</b></div>
+
+    <div class="latihan">
+      <p><b>Coba Hitung:</b></p>
+      <input type="number" id="c1"> × <input type="number" id="c2">
+      <button onclick="kali()">Hitung</button>
+      <div id="hasilKali" class="hasil"></div>
+    </div>
+  </div>
+
+  <!-- PEMBAGIAN -->
+  <div class="section">
+    <h2>2. Pembagian</h2>
+    <p>
+      Pembagian adalah kebalikan dari perkalian. Pembagian adalah kebalikan dari perkalian. Pembagian berarti membagi sesuatu menjadi beberapa bagian yang sama banyak. Tanda pembagian adalah “÷”. Misalnya, kamu punya 12 kue dan ingin membaginya kepada 3 teman dengan jumlah yang sama, maka setiap teman akan mendapat 12 ÷ 3 = 4 kue. Pembagian membantu kita mengetahui berapa banyak yang diterima tiap orang atau berapa kelompok yang bisa kita buat dari sejumlah benda. Dengan pembagian, kita bisa membagi makanan, alat tulis, atau benda lainnya secara adil dan sama rata.
+    </p>
+    
+    <div class="contoh-box">Contoh: 6 ÷ 2 = <b>3</b></div>
+
+    <div class="latihan">
+      <p><b>Coba Hitung:</b></p>
+      <input type="number" id="d1"> ÷ <input type="number" id="d2">
+      <button onclick="bagi()">Hitung</button>
+      <div id="hasilBagi" class="hasil"></div>
+    </div>
+  </div>
+
+  <!-- PENGUKURAN -->
+  <div class="section">
+    <h2>3. Pengukuran</h2>
+    <p>
+      Pengukuran adalah kegiatan membandingkan sesuatu dengan satuan tertentu
+      untuk mengetahui panjang, berat, atau waktu suatu benda.
+      Dalam kehidupan sehari-hari, kita sering menggunakan pengukuran.
+    </p>
+
+    <div class="contoh-box">
+      <b>Contoh Pengukuran:</b><br>
+      📏 Panjang pensil = 15 cm<br>
+      ⚖️ Berat buah = 2 kg<br>
+      ⏰ Lama belajar = 30 menit
+    </div>
+
+    <div class="contoh-box">
+      <b>Satuan yang sering digunakan:</b><br>
+      Panjang: cm, m<br>
+      Berat: g, kg<br>
+      Waktu: menit, jam
+    </div>
+
+    <div class="latihan">
+      <p><b>Latihan Konversi Panjang:</b></p>
+      <input type="number" id="meter"> meter =
+      <button onclick="ubahCm()">Ubah ke cm</button>
+      <div id="hasilUkuran" class="hasil"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function kali() {
+    let x = Number(document.getElementById("c1").value);
+    let y = Number(document.getElementById("c2").value);
+    document.getElementById("hasilKali").innerHTML = "Hasil: " + (x * y);
+  }
+
+  function bagi() {
+    let x = Number(document.getElementById("d1").value);
+    let y = Number(document.getElementById("d2").value);
+    if (y === 0) {
+      document.getElementById("hasilBagi").innerHTML = "Tidak bisa dibagi 0!";
+      return;
+    }
+    document.getElementById("hasilBagi").innerHTML = "Hasil: " + (x / y);
+  }
+
+  function ubahCm() {
+    let m = Number(document.getElementById("meter").value);
+    document.getElementById("hasilUkuran").innerHTML =
+      "Hasil: " + (m * 100) + " cm";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matematika SD • Kelas 1–3</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Fredoka",sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#ffecd2,#fcb69f,#c7f9ff,#ffd6e8);
+  background-size:400% 400%;
+  animation:bgmove 10s infinite alternate;
+}
+
+@keyframes bgmove{
+  0%{background-position:left;}
+  100%{background-position:right;}
+}
+
+nav{
+  padding:20px 40px;
+  background:rgba(255,255,255,.7);
+  display:flex;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.container{
+  padding:40px;
+  text-align:center;
+}
+
+.subtitle{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+h2{
+  font-size:32px;
+  margin-bottom:25px;
+}
+
+.kelas-wrapper{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.kelas-card{
+  width:290px;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  transition:.3s;
+}
+
+.kelas-card:hover{
+  transform:scale(1.07);
+}
+
+.kelas-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+.kelas-card h3{
+  margin:10px 0;
+}
+
+.kelas-card p{
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+/* TOMBOL */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 22px;
+  background:#ff6f91;
+  color:#fff;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  outline:none;
+  transition:.25s;
+}
+
+.btn:hover{
+  background:#ff3f6f;
+  transform:translateY(-2px);
+}
+
+.btn:active{
+  transform:scale(.95);
+}
+
+.footer{
+  margin-top:40px;
+  color:#444;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="klikSound" src="audio/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
+
+<nav>
+  <div class="logo">📘 Matematika SD</div>
+</nav>
+
+<div class="container">
+  <p class="subtitle">Belajar dengan mudah dan menyenangkan!</p>
+  <h2>Pilih Menu</h2>
+
+  <div class="kelas-wrapper">
+
+    <!-- TEORI -->
+    <div class="kelas-card">
+      <img src="gambar/study.png!sw800" alt="Teori">
+      <h3>Masuk Teori</h3>
+      <p>Belajar angka, penjumlahan, pengurangan, dan konsep dasar matematika.</p>
+      <button class="btn" onclick="mulaiBelajar('1.html')">Mulai Belajar</button>
+    </div>
+
+    <!-- KUIS -->
+    <div class="kelas-card">
+      <img src="gambar/berhitung.jpg" alt="Kuis">
+      <h3>Kuis Seru</h3>
+      <p>Yuk uji kemampuanmu dengan kuis matematika yang seru dan menyenangkan!</p>
+      <button class="btn" onclick="mulaiBelajar('isi.html')">Mulai Kuis</button>
+    </div>
+
+  </div>
+
+  <div class="footer">© 2025 Belajar Matematika • Kelompok 2</div>
+</div>
+
+<script>
+const sound = document.getElementById("klikSound");
+
+function mulaiBelajar(url){
+  sound.currentTime = 0;
+  sound.play();
+
+  setTimeout(()=>{
+    window.location.href = url;
+  },300);
+}
+</script>
+
+</body>
+</html>

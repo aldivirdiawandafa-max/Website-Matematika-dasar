@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matematika SD</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Fredoka",sans-serif}
+
+body{
+  background:linear-gradient(135deg,#ffe8d6,#ffd6e8,#c7f9ff);
+  padding:40px;
+}
+
+h1{text-align:center;margin-bottom:30px}
+
+.section{
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  margin-bottom:30px;
+}
+
+.contoh-box{
+  background:#fff7d1;
+  border-left:6px solid #ffb703;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+.latihan{
+  background:#e0f7ff;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+input{
+  padding:8px;
+  width:110px;
+  border-radius:8px;
+  border:1px solid #aaa;
+}
+
+button{
+  padding:8px 16px;
+  border:none;
+  border-radius:10px;
+  background:#ff6f91;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ==== BANGUN DATAR ==== */
+.shape-grid{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:25px;
+  align-items:center;
+  margin-top:25px;
+}
+
+.shape{
+  height:180px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f1f1f1;
+  border-radius:15px;
+}
+
+.persegi{width:120px;height:120px;background:#90dbf4}
+.pp{width:160px;height:100px;background:#cdb4db}
+.segitiga{
+  width:0;height:0;
+  border-left:80px solid transparent;
+  border-right:80px solid transparent;
+  border-bottom:130px solid #a7c957;
+}
+.lingkaran{
+  width:120px;height:120px;
+  background:#ffafcc;border-radius:50%;
+}
+.jajar{
+  width:160px;height:100px;
+  background:#ffd166;
+  transform:skew(-20deg);
+}
+
+.teori{
+  background:#e0f7ff;
+  padding:18px;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Materi Matematika SD</h1>
+
+<!-- ================= KPK ================= -->
+<div class="section">
+<h2>1. Kelipatan Persekutuan Terkecil (KPK)</h2>
+<p>KPK adalah kelipatan yang sama dan paling kecil dari dua bilangan atau lebih.</p>
+
+<div class="contoh-box">
+<b>Contoh:</b><br>
+Kelipatan 6 = 6, 12, 18, 24<br>
+Kelipatan 8 = 8, 16, 24<br>
+KPK dari 6 dan 8 adalah <b>24</b>
+</div>
+
+<div class="latihan">
+<input type="number" id="kpk1"> dan
+<input type="number" id="kpk2">
+<button onclick="hitungKPK()">Hitung</button>
+<div id="hasilKPK"></div>
+</div>
+</div>
+
+ <div class="section">
+    <h2>3. Cara Membaca dan Menghitung Uang</h2>
+    <p>
+      Uang adalah alat tukar yang digunakan untuk membeli barang atau jasa.
+      Di Indonesia, uang disebut <b>Rupiah (Rp)</b>.
+      Uang memiliki nilai yang berbeda-beda, seperti Rp1.000, Rp2.000, Rp5.000,
+      Rp10.000, dan seterusnya.
+      Membaca uang berarti menyebutkan nilai uang dengan benar,
+      sedangkan menghitung uang berarti menjumlahkan atau mengurangkan nilai uang
+      untuk mengetahui total atau sisa uang.
+    </p>
+
+    <div class="contoh-box">
+      Contoh membaca uang:<br>
+      💵 Rp5.000 dibaca <b>lima ribu rupiah</b><br>
+      💵 Rp10.000 dibaca <b>sepuluh ribu rupiah</b><br><br>
+      Contoh menghitung uang:<br>
+      Rp2.000 + Rp3.000 = <b>Rp5.000</b>
+    </div>
+
+<div class="latihan">
+<b>Latihan Menghitung Uang:</b><br><br>
+Rp <input type="number" id="uang1"> +
+Rp <input type="number" id="uang2">
+<button onclick="hitungUang()">Hitung</button>
+<div id="hasilUang"></div>
+</div>
+</div>
+
+<!-- ================= BANGUN DATAR ================= -->
+<div class="section">
+<h2>3. Bangun Datar</h2>
+<p>Bangun datar adalah bangun dua dimensi yang memiliki keliling dan luas.</p>
+
+<!-- PERSEGI -->
+<div class="shape-grid">
+  <div class="shape"><div class="persegi"></div></div>
+  <div class="teori">
+    <b>Persegi</b><br>
+    Keliling = 4 × sisi<br>
+    Luas = sisi × sisi
+    <div class="contoh-box">
+      Contoh: sisi = 5 cm<br>
+      Keliling = 20 cm<br>
+      Luas = 25 cm²
+    </div>
+  </div>
+</div>
+
+<!-- PERSEGI PANJANG -->
+<div class="shape-grid">
+  <div class="shape"><div class="pp"></div></div>
+  <div class="teori">
+    <b>Persegi Panjang</b><br>
+    Keliling = 2 × (p + l)<br>
+    Luas = p × l
+    <div class="contoh-box">
+      Contoh: p = 8 cm, l = 4 cm<br>
+      Keliling = 24 cm<br>
+      Luas = 32 cm²
+    </div>
+  </div>
+</div>
+
+<!-- SEGITIGA -->
+<div class="shape-grid">
+  <div class="shape"><div class="segitiga"></div></div>
+  <div class="teori">
+    <b>Segitiga</b><br>
+    Keliling = a + b + c<br>
+    Luas = ½ × alas × tinggi
+    <div class="contoh-box">
+      Contoh: alas = 10 cm, tinggi = 6 cm<br>
+      Luas = 30 cm²
+    </div>
+  </div>
+</div>
+
+<!-- LINGKARAN -->
+<div class="shape-grid">
+  <div class="shape"><div class="lingkaran"></div></div>
+  <div class="teori">
+    <b>Lingkaran</b><br>
+    Keliling = 2 × π × r<br>
+    Luas = π × r × r
+    <div class="contoh-box">
+      Contoh: r = 7 cm<br>
+      Keliling = 44 cm<br>
+      Luas = 154 cm²
+    </div>
+  </div>
+</div>
+
+<!-- JAJAR GENJANG -->
+<div class="shape-grid">
+  <div class="shape"><div class="jajar"></div></div>
+  <div class="teori">
+    <b>Jajar Genjang</b><br>
+    Keliling = 2 × (a + b)<br>
+    Luas = alas × tinggi
+    <div class="contoh-box">
+      Contoh: alas = 10 cm, tinggi = 6 cm<br>
+      Luas = 60 cm²
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function hitungKPK(){
+  let a=Number(kpk1.value), b=Number(kpk2.value);
+  let kpk=a*b;
+  for(let i=1;i<=kpk;i++){
+    if(i%a==0 && i%b==0){kpk=i;break;}
+  }
+  hasilKPK.innerHTML="KPK = "+kpk;
+}
+
+function hitungUang(){
+  let u1=Number(uang1.value);
+  let u2=Number(uang2.value);
+  hasilUang.innerHTML="Jumlah uang = Rp "+(u1+u2);
+}
+</script>
+
+</body>
+</html>
