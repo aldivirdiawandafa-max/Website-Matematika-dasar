@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<html>
+
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
@@ -38,7 +39,17 @@ nav {
   position: sticky;
   top: 0;
   z-index: 999;
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
 }
+  
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+
 
 .logo {
   font-size: 24px;
@@ -88,6 +99,7 @@ h2 {
 
 .kelas-card h3 {
   margin: 10px 0;
+  
 }
 
 .btn {
@@ -130,28 +142,34 @@ h2 {
 <audio id="klikSound" src="audio/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
 
 <nav>
-  <div class="logo">➕ Belajar Matematika Seru</div>
+  <div class="logo">➕ Belajar Matematika Dasar  
+  </div>
+    <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+  </ul>
+
 </nav>
 
 <div class="container">
-  <p class="subtitle">Ayo belajar matematika dengan cara yang mudah dan menyenangkan!</p>
-  <h2>Yuk Pilih Kelas Kamu!</h2>
+  <p class="subtitle">Selamat Datang di Website Matematika Dasar 😄</p>
+  <h2>Yuk Pilih Kelas Kamu !</h2>
 
   <div class="kelas-wrapper">
 
-    <!-- KELAS 1 -->
+    
     <div class="kelas-card">
       <img src="gambar/sd 1.jpg">
       <h3>Kelas 1</h3>
-      <p>Belajar angka dan hitung dasar dengan seru!</p>
+      <p>Belajar angka dan menghitung dasar dengan asyik</p>
       <button class="btn" onclick="mulaiBelajar('menu.html')">Mulai Belajar</button>
     </div>
 
     <!-- KELAS 2 -->
     <div class="kelas-card">
-      <img src="gambar/sd 4.avif">
+      <img src="gambar/sd_4_cropped.png">
       <h3>Kelas 2</h3>
-      <p>Hitung lebih cepat dan pahami soal cerita!</p>
+      <p>Belajar menghitung perkalian, pembagian dan pengukuran</p>
       <button class="btn" onclick="mulaiBelajar('menu kelas2.html')">Mulai Belajar</button>
     </div>
 
@@ -159,7 +177,7 @@ h2 {
     <div class="kelas-card">
       <img src="gambar/kelas 3.jpg">
       <h3>Kelas 3</h3>
-      <p>Belajar waktu, ukuran, dan pecahan!</p>
+      <p>Mengenal apa itu uang dan cara menghitung uang serta mengenal bangun datar.</p>
       <button class="btn" onclick="mulaiBelajar('menu kelas3.html')">Mulai Belajar</button>
     </div>
 
