@@ -1,132 +1,172 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Matematika SD • Kelas 1–3</title>
-        
-        <!-- FONT GOOGLE YANG LEBIH MENARIK -->
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-        
-        <style>
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        
-            /* FONT LEBIH MENARIK */
-            font-family: "Fredoka", sans-serif;
-          }
-  body {
-    background: linear-gradient(135deg, #ffecd2, #fcb69f, #c7f9ff, #ffd6e8);
-    background-size: 400% 400%;
-    animation: bgmove 10s infinite alternate;
-  }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matematika SD • Kelas 1–3</title>
 
-  @keyframes bgmove { 0% {background-position:left;} 100% {background-position:right;} }
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  nav {
-    width: 100%; padding: 20px 40px;
-    background: rgba(255,255,255,0.7);
-    display: flex; justify-content: space-between; align-items: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: sticky; top: 0; z-index: 10;
-  }
-
-  nav .logo { font-size: 24px; font-weight: bold; color: #333; }
-
-  nav ul { list-style: none; display: flex; gap: 25px; }
-  nav ul li a {
-    text-decoration: none; font-size: 18px; font-weight: 600; color: #333; transition: .3s;
-  }
-  nav ul li a:hover { color: #ff5b5b; }
-
-  .container { padding: 40px; text-align: center; }
-  .subtitle { font-size: 20px; margin-bottom: 10px; }
-  h2 { font-size: 32px; margin-bottom: 25px; }
-
-  .kelas-wrapper {
-    display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;
-  }
-
-  .kelas-card {
-    width: 290px; background: #fff; border-radius: 20px;
-    padding: 20px; cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: .3s; animation: pop .6s ease;
-    gap: 5x0px;
-  }
-
-  @keyframes pop { 0% {transform:scale(.5);opacity:0;} 100% {transform:scale(1);opacity:1;} }
-
-  .kelas-card:hover { transform: scale(1.07); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
-  .kelas-card img { width: 100%; border-radius: 15px; margin-bottom: 10px; }
-  .kelas-card h3 { font-size: 22px; margin: 10px 0; color:#444; }
-  .kelas-card p { font-size: 15px; color: #555; margin-bottom: 15px; }
-
-  .btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin-top: 12px;
-  background: #ff6f91;
-  color: white;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-
-  border: none;        
-  outline: none;       
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Fredoka",sans-serif;
 }
 
-  .btn {
-    display: inline-block; padding: 12px 20px;
-    background: #ff6f91; color: white; border-radius: 12px;
-    text-decoration: none; font-weight: 600; transition: .25s;
-  }
-   
-  .btn:hover { background: #ff3f6f; }
-.btn:focus,
-.btn:active {
-  outline: none;
-  box-shadow: none;    
+body{
+  background:linear-gradient(135deg,#ffecd2,#fcb69f,#c7f9ff,#ffd6e8);
+  background-size:400% 400%;
+  animation:bgmove 10s infinite alternate;
 }
 
-.footer {
-  margin-top: 40px;
+@keyframes bgmove{
+  0%{background-position:left;}
+  100%{background-position:right;}
+}
+
+nav {
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+}
+  
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.container{
+  padding:40px;
+  text-align:center;
+}
+
+.subtitle{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+h2{
+  font-size:32px;
+  margin-bottom:25px;
+}
+
+.kelas-wrapper{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.kelas-card{
+  width:290px;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  transition:.3s;
+}
+
+.kelas-card:hover{
+  transform:scale(1.07);
+}
+
+.kelas-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+.kelas-card h3{
+  margin:10px 0;
+}
+
+.kelas-card p{
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+/* TOMBOL */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 22px;
+  background:#ff6f91;
+  color:#fff;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  outline:none;
+  transition:.25s;
+}
+
+.btn:hover{
+  background:#ff3f6f;
+  transform:translateY(-2px);
+}
+
+.btn:active{
+  transform:scale(.95);
+}
+
+.footer{
+  margin-top:40px;
+  color:#444;
 }
 </style>
 </head>
+
 <body>
 
-  <audio id="klikSound" src="audio/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
+<!-- AUDIO -->
+<audio id="klikSound" src="audio/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
 
 <nav>
-  <div class="logo">📘 Matematika SD</div>
-  
+  <div class="logo"> ➕ Matematika SD</div>
+   <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+  </ul>
 </nav>
 
 <div class="container">
   <p class="subtitle">Belajar dengan mudah dan menyenangkan!</p>
-  <h2>Silahkan pilih metode belajar kamu </h2>
+  <h2>Pilih Menu</h2>
 
   <div class="kelas-wrapper">
 
-    <div class="kelas-card" onclick="playSound()">
-      <img src="gambar/study.png!sw800" alt="Teori" />
+    <!-- TEORI -->
+    <div class="kelas-card">
+      <img src="gambar/membaca_1_cropped.jpeg" alt="Teori">
       <h3>Masuk Teori</h3>
-      <p>Belajar angka, penjumlahan, pengurangan, dan konsep dasar matematika.</p>
+      <p>Belajar perkalian, pembagian dan pengukuran.</p>
       <button class="btn" onclick="mulaiBelajar('2.html')">Mulai Belajar</button>
-
     </div>
 
-    <div class="kelas-card" onclick="playSound()">
-      <img src="gambar/berhitung.jpg" alt="Kuis Seru" />
+    <!-- KUIS -->
+    <div class="kelas-card">
+      <img src="gambar/berhitung.jpg" alt="Kuis">
       <h3>Kuis Seru</h3>
-      <p>Yuk uji kemampuanmu dengan kuis matematika yang seru dan menyenangkan!</p>
-      <button class="btn" onclick="mulaiBelajar('quiz kelas 2.html')">Mulai Belajar</button>
-
+      <p>Yuk uji seberapa paham kamu memahami materi kelas 2 ini.</p>
+      <button class="btn" onclick="mulaiBelajar('quiz kelas 2.html')">Mulai Kuis</button>
     </div>
 
   </div>
@@ -137,14 +177,13 @@
 <script>
 const sound = document.getElementById("klikSound");
 
-function mulaiBelajar(url) {
+function mulaiBelajar(url){
   sound.currentTime = 0;
   sound.play();
 
-  // tunggu suara selesai (0.3 detik)
-  setTimeout(() => {
+  setTimeout(()=>{
     window.location.href = url;
-  }, 300);
+  },300);
 }
 </script>
 
