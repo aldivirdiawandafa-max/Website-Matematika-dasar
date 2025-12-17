@@ -27,14 +27,27 @@ body{
   100%{background-position:right;}
 }
 
-nav{
-  padding:20px 40px;
-  background:rgba(255,255,255,.7);
-  display:flex;
-  align-items:center;
-  backdrop-filter:blur(10px);
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
+nav {
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
 }
+  
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
 
 .logo{
   font-size:24px;
@@ -128,7 +141,11 @@ h2{
 <audio id="klikSound" src="audio/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
 
 <nav>
-  <div class="logo">📘 Matematika SD</div>
+  <div class="logo"> ➕ Belajar Matematika Dasar</div>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+  </ul>
 </nav>
 
 <div class="container">
@@ -139,7 +156,7 @@ h2{
 
     <!-- TEORI -->
     <div class="kelas-card">
-      <img src="gambar/study.png!sw800" alt="Teori">
+      <img src="gambar/membaca_1_cropped.jpeg" alt="Teori">
       <h3>Masuk Teori</h3>
       <p>Belajar angka, penjumlahan, pengurangan, dan konsep dasar matematika.</p>
       <button class="btn" onclick="mulaiBelajar('teori kelas 1.html')">Mulai Belajar</button>
