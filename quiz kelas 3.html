@@ -99,7 +99,6 @@ button {
   <div class="nav-btn" onclick="history.back()">🏠 Kembali</div>
 </div>
 
-<!-- AUDIO -->
 <audio id="benarSound" src="audio/sound-benar-baru_pBtpnq5r.mp3"></audio>
 <audio id="salahSound" src="audio/sound-salah-baru_NlzOVvdd.mp3"></audio>
 <audio id="senangSound" src="audio/WIN sound effect no copyright.mp3"></audio>
@@ -107,26 +106,26 @@ button {
 </div>
 
 <script>
+// ================= DAFTAR SOAL =================
 const soalList = [
 
-/* ===== KPK (3 SOAL) ===== */
-{ q:"KPK dari 4 dan 6 adalah ?", a:"12" },
-{ q:"KPK dari 5 dan 10 adalah ?", a:"10" },
-{ q:"KPK dari 6 dan 8 adalah ?", a:"24" },
-
-/* ===== BANGUN DATAR (4 SOAL) ===== */
-{ q:"Sebuah persegi memiliki sisi 6 cm. Berapa kelilingnya? (jawab dengan cm)", a:"24 cm" },
-{ q:"Persegi panjang panjangnya 8 cm dan lebarnya 5 cm. Berapa luasnya? (jawab dengan cm)", a:"40 cm" },
-{ q:"Segitiga memiliki alas 10 cm dan tinggi 6 cm. Berapa luasnya? (jawab dengan cm)", a:"30 cm" },
-{ q:"Bangun datar yang memiliki 4 sisi sama panjang disebut?", a:"persegi" },
-
-/* ===== SOAL CERITA UANG (3 SOAL) ===== */
-{ q:"Ani mempunyai uang Rp5.000. Ibu memberi lagi Rp3.000. Berapa uang Ani sekarang?", a:"8000" },
+/* SOAL MATA UANG (5) */
+{ q:"Ani mempunyai uang Rp5.000. Ibu memberi lagi Rp3.000. Berapa uang Ani sekarang? (jawab angka saja)", a:"8000" },
 { q:"Budi memiliki uang Rp10.000. Ia membeli penghapus seharga Rp4.000. Berapa sisa uang Budi?", a:"6000" },
-{ q:"Siti membawa uang Rp7.000 lalu diberi ayah Rp5.000. Berapa jumlah uang Siti?", a:"12000" }
+{ q:"Siti membawa uang Rp7.000 lalu diberi ayah Rp5.000. Berapa jumlah uang Siti?", a:"12000" },
+{ q:"Harga buku Rp6.000. Andi membayar Rp10.000. Berapa kembalian Andi?", a:"4000" },
+{ q:"Rina punya Rp2.000 lalu ia diberi ayah Rp3.000. Berapa uang Rina?", a:"5000" },
+
+/* BANGUN DATAR (5) */
+{ q:"Sebuah persegi memiliki sisi 6 cm. Berapa kelilingnya? (jawab angka)", a:"24" },
+{ q:"Persegi panjang p= 8 cm dan l= 5 cm. Berapa luasnya? (jawab angka)", a:"40" },
+{ q:"Keliling persegi 20 cm. Berapa panjang sisinya?", a:"5" },
+{ q:"Bangun datar dengan 3 sisi dan 3 sudut disebut?", a:"segitiga" },
+{ q:"Bangun datar dengan 4 sisi sama panjang disebut?", a:"persegi" }
 
 ];
 
+// ================= LOGIKA QUIZ =================
 function acakSoal(arr){
   for(let i=arr.length-1;i>0;i--){
     let j=Math.floor(Math.random()*(i+1));
@@ -138,11 +137,12 @@ let nomorSoal=0, totalBenar=0;
 acakSoal(soalList);
 
 function tampilkanSoal(){
-  if(nomorSoal>=soalList.length){tampilHasil();return;}
+  if(nomorSoal>=soalList.length){ tampilHasil(); return; }
   questionText.innerHTML=soalList[nomorSoal].q;
   progress.innerHTML=`Soal: ${nomorSoal+1} / ${soalList.length}`;
   answerInput.value="";
   resultText.innerHTML="";
+  resultText.style.color="#000";
 }
 
 function cekJawaban(){
@@ -172,7 +172,7 @@ function tampilHasil(){
   btnCek.style.display="none";
   resultText.style.display="none";
 
-  let nilai=(totalBenar/soalList.length)*100;
+  let nilai=Math.round((totalBenar/soalList.length)*100);
   finalScore.innerHTML=`Nilai: <b>${nilai}</b><br>Benar ${totalBenar} dari ${soalList.length}`;
   bottomButtons.style.display="block";
 
@@ -197,4 +197,3 @@ tampilkanSoal();
 
 </body>
 </html>
-
