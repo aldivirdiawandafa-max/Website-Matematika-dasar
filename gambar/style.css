@@ -1,0 +1,199 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f, #c7f7ff, #d8ffd8);
+    background-size: 400% 400%;
+    animation: bgAnim 18s ease infinite;
+}
+
+/* ANIMASI BACKGROUND */
+@keyframes bgAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NAVBAR */
+nav {
+    background: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: 0.4s;
+}
+
+/* Efek saat scroll navbar mengecil */
+nav.scrolled {
+    padding: 12px 25px;
+    background: #43a047;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* CONTAINER */
+.container {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    padding: 30px;
+    animation: fadeUp 1s ease;
+}
+
+/* ANIMASI BACKGROUND MELAYANG */
+@keyframes fadeUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.subtitle {
+    margin: 15px 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a73e8;
+}
+
+/* KELAS WRAPPER */
+.kelas-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* CARD */
+.kelas-card {
+    background: #f5faff;
+    width: 32%;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek glow */
+.kelas-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Efek dekorasi bentuk */
+.kelas-card::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: #90e0ef;
+    border-radius: 50%;
+    opacity: 0.25;
+    transition: 0.4s;
+}
+
+.kelas-card:hover::before {
+    transform: scale(1.3);
+    opacity: 0.45;
+}
+
+.kelas-card img {
+    width: 100%;
+    height: 60%;
+    border-radius: 12px;
+}
+
+/* Judul */
+.kelas-card h3 {
+    margin: 15px 0 10px;
+    font-size: 22px;
+    color: #0077b6;
+}
+
+/* Tombol */
+.btn {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #2e7d32;
+    transform: scale(1.07);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+
+    .kelas-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kelas-card {
+        width: 90%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

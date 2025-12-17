@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background: #e6f3ff;
+}
+
+/* NAVBAR */
+nav {
+    background: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+nav .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.container {
+    background: white;
+    width: 10%;
+    max-width: 1100px;
+    margin: 10px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 25px;
+
+}
+
+.subtitle {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+/* KELAS WRAPPER */
+.kelas-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+/* CARD */
+.kelas-card {
+    background: #cedef3;
+    width: 32%;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+
+}
+
+.kelas-card:hover {
+    transform: scale(1.03);
+}
+
+.kelas-card img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.kelas-card h3 {
+    margin: 15px 0 10px;
+    font-size: 22px;
+    
+}
+
+.btn {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .kelas-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kelas-card {
+        width: 90%;
+    }
+}
