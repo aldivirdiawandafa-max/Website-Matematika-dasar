@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri Matematika</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Fredoka", sans-serif;
+}
+
+nav {
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+}
+  
+  nav .logo { font-size:24px; font-weight:bold; }
+  nav ul { list-style:none; display:flex; gap:25px; }
+  nav ul li a { text-decoration:none; color:#333; font-size:18px; font-weight:600; }
+  nav ul li a:hover { color:#ff5b5b; }
+
+
+body{
+  background:linear-gradient(135deg,#e0f7fa,#fff3e0,#e8f5e9);
+  min-height:100vh;
+}
+
+/* JUDUL */
+h2{
+  text-align:center;
+  padding:30px 10px;
+  font-size:28px;
+  color:#2c3e50;
+  margin-bottom:50px; /* jarak ke card */
+}
+
+/* GRID */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px;
+  padding:0 40px 60px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* CARD */
+.card{
+  background:white;
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* IMAGE */
+.image{
+  position:relative;
+  height:240px;
+  overflow:hidden;
+}
+
+.image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s ease;
+}
+
+/* AKSEN WARNA DI TENGAH GAMBAR */
+.image::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:#e62429;
+}
+
+/* ZOOM HALUS */
+.card:hover .image img{
+  transform:scale(1.05);
+}
+
+/* CONTENT (BAGIAN BAWAH GELAP) */
+.content{
+  position:relative;
+  padding:18px;
+  min-height:120px;
+  background:#1c1f26; /* gelap ala Marvel */
+  color:white;
+  overflow:hidden;
+}
+
+/* OVERLAY WARNA SAAT HOVER (TEKS SAJA) */
+.content::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:0;
+  background:linear-gradient(
+    to bottom,
+    #e62429,
+   #c81d25
+  );
+  z-index:1;
+  transition:.45s ease;
+}
+
+/* TEKS DI ATAS OVERLAY */
+.content *{
+  position:relative;
+  z-index:2;
+}
+
+.card:hover .content::before{
+  height:100%;
+}
+
+/* TEKS */
+.content h3{
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.content span{
+  font-size:14px;
+  opacity:.9;
+}
+</style>
+</head>
+
+<body>
+  <nav>
+  <div class="logo">➕ Belajar Matematika Dasar 
+  </div>
+    <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+  </ul>
+
+</nav>
+
+
+<h2> penyusun website  </h2>
+
+<div class="gallery">
+
+  <div class="card">
+    <div class="image">
+      <img src="gambar/bryllen.jpg" alt="Bilangan">
+    </div>
+    <div class="content">
+      <h3>Bryllen</h3>
+      <p>Yang ngoding</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="gambar/dino.jpeg" alt="Bangun Datar">
+    </div>
+    <div class="content">
+      <h3>Aldino</h3>
+      <span>Asisten bryllen</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="gambar/rauf 2.jpg" alt="KPK & FPB">
+    </div>
+    <div class="content">
+      <h3>Rauf</h3>
+      <span>Design web</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="gambar/sheriel.jpg" alt="Soal Uang">
+    </div>
+    <div class="content">
+      <h3>Sheriel zelda</h3>
+      <span>Pengisi materi</span>
+    </div>
+  </div>
+   <div class="card">
+    <div class="image">
+      <img src="gambar/pais.jpg" alt="Soal Uang">
+    </div>
+
+    <div class="content">
+      <h3>Pais</h3>
+      <span>Penasehat</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
