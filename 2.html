@@ -91,11 +91,10 @@
 <body>
 
 <nav>
-  <div class="logo">📘 Teori Matematika Kelas 2</div>
+  <div class="logo">➗ Teori Matematika Kelas 2</div>
   <ul>
     <li><a href="index.html">Beranda</a></li>
-    <li><a href="#">Materi</a></li>
-    <li><a href="#">Tentang</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
   </ul>
 </nav>
 
@@ -137,61 +136,89 @@
   </div>
 
   <!-- PENGUKURAN -->
-  <div class="section">
-    <h2>3. Pengukuran</h2>
-    <p>
-      Pengukuran adalah kegiatan membandingkan sesuatu dengan satuan tertentu
-      untuk mengetahui panjang, berat, atau waktu suatu benda.
-      Dalam kehidupan sehari-hari, kita sering menggunakan pengukuran.
-    </p>
+ <!-- PENGUKURAN -->
+<div class="section">
+  <h2>3. Pengukuran</h2>
+  <p>
+    Pengukuran adalah kegiatan membandingkan sesuatu dengan satuan tertentu
+    untuk mengetahui panjang, berat, atau waktu suatu benda.
+    Dalam kehidupan sehari-hari, kita sering menggunakan pengukuran.
+  </p>
 
-    <div class="contoh-box">
-      <b>Contoh Pengukuran:</b><br>
-      📏 Panjang pensil = 15 cm<br>
-      ⚖️ Berat buah = 2 kg<br>
-      ⏰ Lama belajar = 30 menit
-    </div>
-
-    <div class="contoh-box">
-      <b>Satuan yang sering digunakan:</b><br>
-      Panjang: cm, m<br>
-      Berat: g, kg<br>
-      Waktu: menit, jam
-    </div>
-
-    <div class="latihan">
-      <p><b>Latihan Konversi Panjang:</b></p>
-      <input type="number" id="meter"> meter =
-      <button onclick="ubahCm()">Ubah ke cm</button>
-      <div id="hasilUkuran" class="hasil"></div>
-    </div>
+  <div class="contoh-box">
+    <b>Contoh Pengukuran:</b><br>
+    📏 Panjang pensil = 15 cm<br>
+    ⚖️ Berat buah = 2 kg<br>
+    ⏰ Lama belajar = 30 menit
   </div>
 
+  <div class="contoh-box">
+    <b>Satuan yang sering digunakan:</b><br>
+    Panjang: cm, m<br>
+    Berat: g, kg<br>
+    Waktu: menit, jam
+  </div>
+
+  <!-- LATIHAN PANJANG -->
+  <div class="latihan">
+    <p><b>Latihan Konversi Panjang:</b></p>
+    <input type="number" id="meter"> meter =
+    <button onclick="ubahCm()">Ubah ke cm</button>
+    <div id="hasilUkuran" class="hasil"></div>
+  </div>
+
+  <!-- LATIHAN BERAT -->
+  <div class="latihan">
+    <p><b>Latihan Konversi Berat:</b></p>
+    <input type="number" id="kg"> kg =
+    <button onclick="ubahGram()">Ubah ke gram</button>
+    <div id="hasilBerat" class="hasil"></div>
+  </div>
+
+  <!-- LATIHAN WAKTU -->
+  <div class="latihan">
+    <p><b>Latihan Konversi Waktu:</b></p>
+    <input type="number" id="menit"> menit =
+    <button onclick="ubahDetik()">Ubah ke detik</button>
+    <div id="hasilWaktu" class="hasil"></div>
+  </div>
 </div>
+
 
 <script>
   function kali() {
-    let x = Number(document.getElementById("c1").value);
-    let y = Number(document.getElementById("c2").value);
-    document.getElementById("hasilKali").innerHTML = "Hasil: " + (x * y);
-  }
+  const c1 = document.getElementById("c1").value;
+  const c2 = document.getElementById("c2").value;
 
-  function bagi() {
-    let x = Number(document.getElementById("d1").value);
-    let y = Number(document.getElementById("d2").value);
-    if (y === 0) {
-      document.getElementById("hasilBagi").innerHTML = "Tidak bisa dibagi 0!";
-      return;
-    }
-    document.getElementById("hasilBagi").innerHTML = "Hasil: " + (x / y);
-  }
+  document.getElementById("hasilKali").innerText =
+    c1 + " × " + c2 + " = " + (c1 * c2);
+}
 
-  function ubahCm() {
-    let m = Number(document.getElementById("meter").value);
-    document.getElementById("hasilUkuran").innerHTML =
-      "Hasil: " + (m * 100) + " cm";
-  }
+function bagi() {
+  const d1 = document.getElementById("d1").value;
+  const d2 = document.getElementById("d2").value;
+
+  document.getElementById("hasilBagi").innerText =
+    d1 + " ÷ " + d2 + " = " + (d1 / d2);
+}
+
+function ubahCm() {
+  const meter = document.getElementById("meter").value;
+  document.getElementById("hasilUkuran").innerText =
+    meter + " meter = " + (meter * 100) + " cm";
+}
+
+function ubahGram() {
+  const kg = document.getElementById("kg").value;
+  document.getElementById("hasilBerat").innerText =
+    kg + " kg = " + (kg * 1000) + " gram";
+}
+
+function ubahDetik() {
+  const menit = document.getElementById("menit").value;
+  document.getElementById("hasilWaktu").innerText =
+    menit + " menit = " + (menit * 60) + " detik";
+}
 </script>
-
 </body>
 </html>
